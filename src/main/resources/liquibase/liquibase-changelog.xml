@@ -1,0 +1,15 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <include file="changeset1_schema.mysql.sql" relativeToChangelogFile="true"/>
+    <include file="changeset2_insert_countrie.mysql.sql" relativeToChangelogFile="true"/>
+    <include file="changeset3_insert_cities.mysql.sql" relativeToChangelogFile="true"/>
+    <include file="changeset4_insert_comapnies.mysql.sql" relativeToChangelogFile="true"/>
+    <include file="changeset5_insert_users.mysql.sql" relativeToChangelogFile="true"/>
+    <include file="changeset6_insert_user_details.mysql.sql" relativeToChangelogFile="true"/>
+
+
+</databaseChangeLog>

@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: User Management App
+
+  server:
+    port: 8080
+
+  liquibase:
+    change-log: classpath:liquibase/liquibase-changelog.xml
+
+  datasource:
+    name: Database connection - uma_db
+    url: jdbc:mysql://localhost:3306/uma_db?createDatabaseIfNotExist=true
+    username: root
+    password: Lsoee?Onoaa
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    show-sql: true
