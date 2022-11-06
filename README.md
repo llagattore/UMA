@@ -24,6 +24,6 @@ PRIJE POKRETANJA APLIKACIJE
     7.GET    |http://localhost:8080/api/user/{Datum}   |vraca sve korisnike kreirane na odredjeni datum (npr: http://localhost:8080/api/user/2022-11-04)
     8.GET    |http://localhost:8080/api/user?company_name={?}   |vraca sve korisnike jedne kompanije (mora se dati ime kompanije u path varijabli ?company_name=, npr: ?company_name=Company3)
    
-Koristio sam Postman API Platform za testiranje metoda. GET metode mozete uputiti i preko browsera.
-Uputite jednu od GET metoda nad userom (6, 7, 8), npr: http://localhost:8080/api/user/2022-11-04 da biste vidjeli podatke koji opisuju jednog usera. Mozete onda probati POST i PUT metode, dajuci pri tom BODY u JSON formatu.
-Promjene stanja u bazi podataka pratite na nacin koji vam odgovara (najlakse preko mysql workbench ili u IDE-u ako to podrzava).
+Koristio sam Postman API Platform za testiranje metoda. GET metode mozete uputiti i preko address bar-a u browseru.
+Uputite jednu od GET metoda nad userom (6, 7 ili 8), npr: http://localhost:8080/api/user/2022-11-04 da biste vidjeli podatke koji opisuju jednog usera. Mozete onda probati POST i PUT metode, dajuci pri tom BODY u JSON formatu.
+Promjene stanja u bazi podataka pratite na nacin koji vam odgovara (najlakse preko mysql workbench-a ili u IDE-u ako to podrzava).
