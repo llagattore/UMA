@@ -1,6 +1,10 @@
 # UMA
 User Management Application
 
+Da preuzmete projekat:
+Otvorite Console ili Terminal -> Imajte git instaliran -> Napravite direktorijum za porjekat -> Izvrsite komandu u direktorijumu: 
+git clone https://github.com/llagattore/UMA.git.
+
 PRIJE POKRETANJA APLIKACIJE
 Otvorite projekat u omiljenom IDE-u.
 1. Potrebno je imati MySQL instaliran i mysql server pokrenut.
