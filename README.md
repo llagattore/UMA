@@ -1,12 +1,14 @@
 # UMA
 User Management Application
 
+Potreban je JDK 11 za pokretanje aplikacije.
+
 Da preuzmete projekat:
-Otvorite Console ili Terminal -> Imajte git instaliran -> Napravite direktorijum za porjekat -> Izvrsite komandu u direktorijumu: 
+1.  Otvorite Console ili Terminal -> Imajte git instaliran -> Napravite direktorijum za porjekat -> Izvrsite komandu u direktorijumu: 
 git clone https://github.com/llagattore/UMA.git.
+2.  Otvorite projekat u omiljenom IDE-u. Napravite build/run konfiguraciju za aplikacije: treba staviti JDK 11, a ulazna klasa je personal.uma.UmaApplication. 
 
 PRIJE POKRETANJA APLIKACIJE
-Otvorite projekat u omiljenom IDE-u.
 1. Potrebno je imati MySQL instaliran i mysql server pokrenut.
 2. U application.yml (src/main/resources/application.yml) polje spring.datasource specifira neophodne parametre za pristup mysql serveru.
     Podrazumijava se da je na likalhost-u i default port-u, i user je root. Potrebno je samo unijeti password. Aplikacija nije testirana za konekcije ka       remote serveru, ali ukoliko zelite da probate, morate unijeti i url i username. User mora imati neophodne privilegije za kreiranje baze podataka. Path     varijablu '?createDatabaseIfNotExist=true' ostavite na true, kako bi se kreirala baza podataka. Takodje ce biti unijeti neki pocetni podaci.
