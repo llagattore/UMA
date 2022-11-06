@@ -12,7 +12,7 @@ spring:
     name: Database connection - uma_db
     url: jdbc:mysql://localhost:3306/uma_db?createDatabaseIfNotExist=true
     username: root
-    password: Lsoee?Onoaa
+    password: $password$
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
