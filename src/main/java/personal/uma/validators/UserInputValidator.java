@@ -73,16 +73,11 @@ public class UserInputValidator implements Validator {
             return;
         }
 
-        if(password.length() < 8){
-            errors.rejectValue("password", "invalid-password",
-                    "Must contain at least 8 characters");
-            return;
-        }
-
         Matcher matcher = inputRegexes[1].matcher(password);
         if (!matcher.find()){
             errors.rejectValue("password", "invalid-password",
-                    "Must contain one of each: Capital letter, Lower case letter, Number, Special character");
+                    "Must be at least 8 characters long and contain one of each: " +
+                            "Capital letter, Lower case letter, Number, Special character");
         }
     }
 
@@ -104,13 +99,15 @@ public class UserInputValidator implements Validator {
         }
     }
 
-    private static final Pattern[] inputRegexes = new Pattern[3];
+    private static final Pattern[] inputRegexes = new Pattern[4];
     static {
         inputRegexes[0] = Pattern.compile("[^a-zA-Z0-9.]");
         inputRegexes[1] = Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?\\d)" +
-                "(?=.*?[`~!@#$%^&*()\\-_=+\\\\|\\[{\\]};:'\",<.>/?]).*$");
+                "(?=.*?[`~!@#$%^&*()\\-_=+\\\\|\\[{\\]};:'\",<.>/?]).{8,}$");
         inputRegexes[2] = Pattern.compile("^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$");
-//        String regex = "^(?=.*?\\p{Lu})(?=.*?\\p{Ll})(?=.*?\\d)" +
-//                "(?=.*?[`~!@#$%^&*()\\-_=+\\\\|\\[{\\]};:'\",<.>/?]).*$";
     }
 }
+
+
+
+
