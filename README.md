@@ -11,7 +11,7 @@ git clone https://github.com/llagattore/UMA.git.
 PRIJE POKRETANJA APLIKACIJE
 1. Potrebno je imati MySQL instaliran i mysql server pokrenut.
 2. U application.yml (src/main/resources/application.yml) polje spring.datasource specifira neophodne parametre za pristup mysql serveru.
-    Podrazumijava se da je na likalhost-u i default port-u, i user je root. Potrebno je samo unijeti password. Aplikacija nije testirana za konekcije ka       remote serveru, ali ukoliko zelite da probate, morate unijeti i url i username. User mora imati neophodne privilegije za kreiranje baze podataka. Path     varijablu '?createDatabaseIfNotExist=true' ostavite na true, kako bi se kreirala baza podataka. Takodje ce biti unijeti neki pocetni podaci.
+    Podrazumijava se da je na likalhost-u i default port-u, i user je root. Potrebno je samo unijeti password. Aplikacija nije testirana za konekcije ka       remote serveru, ali ukoliko zelite da probate, morate unijeti i url i username. User mora imati neophodne privilegije za kreiranje baze podataka.           Takodje ce biti unijeti neki pocetni podaci.
 3. Polje server.port specificira port za aplikaciju (stavljen je default port 8080).
 4. Sledece methode su definisane:
     1.GET    |http://localhost:8080/api/city          |vraca sve gradove koji su u bazi podataka
