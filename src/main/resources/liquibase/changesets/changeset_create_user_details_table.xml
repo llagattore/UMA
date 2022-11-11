@@ -1,0 +1,157 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet author="llagator" id="create_user_details_table">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="user_details"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="uma_db" tableName="user_details">
+            <column name="user_id" type="int">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="first_name" type="varchar(45)" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="last_name" type="varchar(45)" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="date_of_birth" type="date" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="sex" type="char(1)" defaultValue="u">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="city_of_birth" type="int" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="country_of_birth" type="int" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <modifySql  dbms="mysql">
+            <append  value=" ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb3"/>
+        </modifySql>
+
+    </changeSet>
+
+    <changeSet author="llagator" id="add_foreign_key_user_details_user_id">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_user_details_user_id"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint  baseColumnNames="user_id"
+                                  baseTableName="user_details"
+                                  baseTableSchemaName="uma_db"
+                                  constraintName="fk_user_details_user_id"
+                                  onDelete="CASCADE"
+                                  onUpdate="RESTRICT"
+                                  referencedColumnNames="id"
+                                  referencedTableName="user"
+                                  referencedTableSchemaName="uma_db"
+                                  validate="true"/>
+
+    </changeSet>
+
+    <changeSet author="llagator" id="add_foreign_key_user_details_city_id">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_user_details_city_id"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint  baseColumnNames="city_of_birth"
+                                  baseTableName="user_details"
+                                  baseTableSchemaName="uma_db"
+                                  constraintName="fk_user_details_city_id"
+                                  onDelete="SET NULL"
+                                  onUpdate="RESTRICT"
+                                  referencedColumnNames="id"
+                                  referencedTableName="city"
+                                  referencedTableSchemaName="uma_db"
+                                  validate="true"/>
+
+    </changeSet>
+
+    <changeSet author="llagator" id="add_foreign_key_user_details_country_id">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_user_details_country_id"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint  baseColumnNames="country_of_birth"
+                                  baseTableName="user_details"
+                                  baseTableSchemaName="uma_db"
+                                  constraintName="fk_user_details_country_id"
+                                  onDelete="SET NULL"
+                                  onUpdate="RESTRICT"
+                                  referencedColumnNames="id"
+                                  referencedTableName="country"
+                                  referencedTableSchemaName="uma_db"
+                                  validate="true"/>
+
+    </changeSet>
+</databaseChangeLog>
+
+<!--mysql-->
+<!--        CREATE TABLE IF NOT EXISTS `uma_db`.`user_details` (-->
+<!--        `user_id` INT NOT NULL,-->
+<!--        `first_name` VARCHAR(45) NULL DEFAULT NULL,-->
+<!--        `last_name` VARCHAR(45) NULL DEFAULT NULL,-->
+<!--        `date_of_birth` DATE NULL DEFAULT NULL,-->
+<!--        `sex` CHAR(1) NULL DEFAULT 'u',-->
+<!--        `city_of_birth` INT NULL DEFAULT NULL,-->
+<!--        `country_of_birth` INT NULL DEFAULT NULL,-->
+<!--        PRIMARY KEY (`user_id`),-->
+<!--        INDEX `user_id_idx` (`user_id` ASC) VISIBLE,-->
+<!--        INDEX `city_of_birth_idx` (`city_of_birth` ASC) VISIBLE,-->
+<!--        INDEX `country_of_birth_idx` (`country_of_birth` ASC) VISIBLE,-->
+<!--        CONSTRAINT `fk_Users_details_city_of_birth`-->
+<!--        FOREIGN KEY (`city_of_birth`)-->
+<!--        REFERENCES `uma_db`.`city` (`id`)-->
+<!--        ON DELETE SET NULL,-->
+<!--        CONSTRAINT `fk_Users_details_country_of_birth`-->
+<!--        FOREIGN KEY (`country_of_birth`)-->
+<!--        REFERENCES `uma_db`.`country` (`id`)-->
+<!--        ON DELETE SET NULL,-->
+<!--        CONSTRAINT `fk_Users_deteils_user_id`-->
+<!--        FOREIGN KEY (`user_id`)-->
+<!--        REFERENCES `uma_db`.`user` (`id`)-->
+<!--        ON DELETE CASCADE)-->
+<!--        ENGINE = InnoDB-->
+<!--        DEFAULT CHARACTER SET = utf8mb3;-->
+
+<!--<column name="user_id" type="int">-->
+<!--<constraints primaryKey="true" nullable="false" foreignKeyName="fk_user_details_user_id"-->
+<!--             referencedTableSchemaName="uma_db" referencedTableName="user" referencedColumnNames="id"-->
+<!--             deleteCascade="true"/>-->
+<!--</column>-->
+
+<!--<column name="city_of_birth" type="int" defaultValue="null">-->
+<!--<constraints nullable="true" foreignKeyName="fk_user_details_city_id"-->
+<!--             referencedTableSchemaName="uma_db" referencedTableName="city" referencedColumnNames="id"-->
+<!--             references="ON DELETE SET NULL"/>-->
+<!--</column>-->
+
+<!--<column name="country_of_birth" type="int" defaultValue="null">-->
+<!--<constraints nullable="true" foreignKeyName="fk_user_details_country_id"-->
+<!--             referencedTableSchemaName="uma_db" referencedTableName="country" referencedColumnNames="id"-->
+<!--             references="ON DELETE SET NULL"/>-->
+<!--</column>-->

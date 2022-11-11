@@ -63,7 +63,8 @@ public class UserInputValidator implements Validator {
 
         Boolean exists = userService.usernameExists(username);
         if (exists){
-            errors.rejectValue("username", "username-taken", "Username is taken");
+            errors.rejectValue("username", "username-taken", "Username is taken " +
+                    "(comparison is case insensitive: cannot have similar usernames)");
         }
     }
 

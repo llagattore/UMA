@@ -1,0 +1,98 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet author="llagator" id="create_user_table">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="user"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="uma_db" tableName="user">
+            <column name="id" type="int" autoIncrement="true" startWith="13">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="username" type="varchar(45)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="username_UNIQUE"/>
+            </column>
+
+            <column name="password" type="varchar(45)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="email" type="varchar(45)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="email_UNIQUE"/>
+            </column>
+
+            <column name="date_created" type="datetime" defaultValueComputed="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="active" type="bit(1)" defaultValueBoolean="true">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="company_id" type="int" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <modifySql  dbms="mysql">
+            <append  value=" ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb3"/>
+        </modifySql>
+
+    </changeSet>
+
+    <changeSet author="llagator" id="add_foreign_key_user_company_id">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_user_company_id"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint  baseColumnNames="company_id"
+                                  baseTableName="user"
+                                  baseTableSchemaName="uma_db"
+                                  constraintName="fk_user_company_id"
+                                  onDelete="SET NULL"
+                                  onUpdate="RESTRICT"
+                                  referencedColumnNames="id"
+                                  referencedTableName="company"
+                                  referencedTableSchemaName="uma_db"
+                                  validate="true"/>
+
+    </changeSet>
+</databaseChangeLog>
+
+<!--mysql-->
+<!--        CREATE TABLE IF NOT EXISTS `uma_db`.`user` (-->
+<!--        `id` INT NOT NULL AUTO_INCREMENT,-->
+<!--        `username` VARCHAR(45) NOT NULL,-->
+<!--        `password` VARCHAR(45) NOT NULL,-->
+<!--        `email` VARCHAR(45) NOT NULL,-->
+<!--        `date_created` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,-->
+<!--        `active` BIT(1) NULL DEFAULT b'1',-->
+<!--        `company_id` INT NULL DEFAULT NULL,-->
+<!--        PRIMARY KEY (`id`),-->
+<!--        UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,-->
+<!--        UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,-->
+<!--        INDEX `company_id_idx` (`company_id` ASC) VISIBLE,-->
+<!--        CONSTRAINT `fk_Users_company_id`-->
+<!--        FOREIGN KEY (`company_id`)-->
+<!--        REFERENCES `uma_db`.`company` (`id`)-->
+<!--        ON DELETE SET NULL)-->
+<!--        ENGINE = InnoDB-->
+<!--        AUTO_INCREMENT = 13-->
+<!--        DEFAULT CHARACTER SET = utf8mb3;-->
+
+<!--<column name="company_id" type="int" defaultValue="null">-->
+<!--<constraints nullable="true" foreignKeyName="fk_user_company_id"-->
+<!--             referencedTableSchemaName="uma_db" referencedTableName="company" referencedColumnNames="id"-->
+<!--             references="ON DELETE SET NULL"/>-->
+<!--</column>-->

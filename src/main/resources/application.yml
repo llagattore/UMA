@@ -7,13 +7,22 @@ spring:
 
   liquibase:
     change-log: classpath:liquibase/liquibase-changelog.xml
+    default-schema: ${my.db.schemaname}
+    liquibase-schema: ${my.db.schemaname}
 
   datasource:
-    name: Database connection - uma_db
-    url: jdbc:mysql://localhost:3306/uma_db?createDatabaseIfNotExist=true
+    name: Database connection - ${my.db.schemaname}
+    url: jdbc:mysql://localhost:3306/
     username: root
     password: $password$
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     show-sql: true
+    properties:
+      hibernate:
+        default_schema: ${my.db.schemaname}
+
+my:
+  db:
+    schema-name: uma_db

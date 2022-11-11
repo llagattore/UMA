@@ -1,0 +1,38 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet author="llagator" id="insert_into_company">
+        <insert schemaName="uma_db" tableName="company">
+            <column name="id" value="1"/>
+            <column name="name" value="Company1"/>
+            <column name="description" value="Does company1 things"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="company">
+            <column name="id" value="2"/>
+            <column name="name" value="Company2"/>
+            <column name="description" value="Does company2 things"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="company">
+            <column name="id" value="3"/>
+            <column name="name" value="Company3"/>
+            <column name="description" value="Does company3 things"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="company">
+            <column name="id" value="4"/>
+            <column name="name" value="Company4"/>
+            <column name="description" value="Does company4 things"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
+
+<!--        INSERT INTO company(id, name, description)-->
+<!--        values ('1', 'Company1', 'Does company1 things'),-->
+<!--        ('2','Company2', 'Does company2 things'),-->
+<!--        ('3', 'Company3', 'Does company3 things'),-->
+<!--        ('4', 'Company4', 'Does company4 things');-->

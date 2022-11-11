@@ -1,0 +1,86 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet author="llagator" id="insert_into_user">
+        <insert schemaName="uma_db" tableName="user">
+            <column name="username" value="JoDe"/>
+            <column name="password" value="pass1"/>
+            <column name="email" value="john.doe@foo.com"/>
+            <column name="date_created" value="2022-11-04 14:57:53"/>
+            <column name="active" valueBoolean="true"/>
+            <column name="company_id" value="1"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="user">
+            <column name="username" value="JaDe"/>
+            <column name="password" value="pass2"/>
+            <column name="email" value="jane.doe@goo.com"/>
+            <column name="date_created" value="2022-11-04 14:57:53"/>
+            <column name="active" valueBoolean="false"/>
+            <column name="company_id" value="3"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="user">
+            <column name="username" value="DoJe"/>
+            <column name="password" value="pass3"/>
+            <column name="email" value="don.joe@bar.com"/>
+            <column name="date_created" value="2022-11-04 14:57:53"/>
+            <column name="active" valueBoolean="true"/>
+            <column name="company_id" value="4"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="user">
+            <column name="username" value="DaJe"/>
+            <column name="password" value="pass4"/>
+            <column name="email" value="dane.joe@tar.com"/>
+            <column name="date_created" value="2022-11-04 14:57:53"/>
+            <column name="active" valueBoolean="true"/>
+            <column name="company_id" value="3"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="user">
+            <column name="username" value="JoBe"/>
+            <column name="password" value="pass5"/>
+            <column name="email" value="john.boe@moo.com"/>
+            <column name="date_created" value="2022-11-04 14:57:53"/>
+            <column name="active" valueBoolean="false"/>
+            <column name="company_id" value="4"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="user">
+            <column name="username" value="JaBe"/>
+            <column name="password" value="pass6"/>
+            <column name="email" value="jane.boe@noo.com"/>
+            <column name="date_created" value="2022-11-04 14:57:53"/>
+            <column name="active" valueBoolean="true"/>
+            <column name="company_id" value="2"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="user">
+            <column name="username" value="BoJe"/>
+            <column name="password" value="pass7"/>
+            <column name="email" value="bon.joe@zar.com"/>
+            <column name="date_created" value="2022-11-04 14:57:53"/>
+            <column name="active" valueBoolean="true"/>
+            <column name="company_id" value="1"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="user">
+            <column name="username" value="BaJe"/>
+            <column name="password" value="pass8"/>
+            <column name="email" value="bane.joe@jar.com"/>
+            <column name="date_created" value="2022-11-04 14:57:53"/>
+            <column name="active" valueBoolean="false"/>
+            <column name="company_id" value="4"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
+
+<!--        INSERT INTO user(username, password, email, date_created, active, company_id)-->
+<!--        values  ('JoDe', 'pass1', 'john.doe@foo.com', '2022-11-04 14:57:53', b'1', '1'),-->
+<!--        ('JaDe', 'pass2', 'jane.doe@goo.com', '2022-11-04 14:57:53',b'0', '3'),-->
+<!--        ('DoJe', 'pass3', 'don.joe@bar.com', '2022-11-04 14:57:53',b'1','4'),-->
+<!--        ('DaJe', 'pass4', 'dane.joe@tar.com', '2022-11-04 14:57:53',b'1','3'),-->
+<!--        ('JoBe', 'pass5', 'john.boe@moo.com', '2022-11-04 14:57:53',b'0','4'),-->
+<!--        ('JaBe', 'pass6', 'jane.boe@noo.com', '2022-11-04 14:57:53',b'1','2'),-->
+<!--        ('BoJe', 'pass7', 'bon.joe@zar.com', '2022-11-04 14:57:53',b'1','1'),-->
+<!--        ('Baje', 'pass8', 'bane.joe@jar.com', '2022-11-04 14:57:53',b'0','4');-->

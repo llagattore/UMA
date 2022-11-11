@@ -1,15 +1,26 @@
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
-		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
 
-    <include file="changeset1_schema.mysql.sql" relativeToChangelogFile="true"/>
-    <include file="changeset2_insert_countrie.mysql.sql" relativeToChangelogFile="true"/>
-    <include file="changeset3_insert_cities.mysql.sql" relativeToChangelogFile="true"/>
-    <include file="changeset4_insert_comapnies.mysql.sql" relativeToChangelogFile="true"/>
-    <include file="changeset5_insert_users.mysql.sql" relativeToChangelogFile="true"/>
-    <include file="changeset6_insert_user_details.mysql.sql" relativeToChangelogFile="true"/>
+    <include file="changesets/changeset_remove_checks.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/changeset_create_country_table.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/changeset_create_city_table.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/changeset_create_company_table.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/changeset_create_user_table.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/changeset_create_user_details_table.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/changeset_reinstate_checks.xml" relativeToChangelogFile="true"/>
 
+
+    <include file="changesets/changeset_insert_into_country.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/changeset_insert_into_city.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/changeset_insert_into_company.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/changeset_insert_into_user.xml" relativeToChangelogFile="true"/>
+    <include file="changesets/changeset_insert_into_user_details.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

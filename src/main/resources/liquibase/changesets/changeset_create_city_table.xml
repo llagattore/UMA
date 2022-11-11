@@ -1,0 +1,76 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet author="llagator" id="create_city_table">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="city"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="uma_db" tableName="city">
+            <column name="id" type="int" autoIncrement="true" startWith="7">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="name" type="varchar(45)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="country_id" type="int" defaultValue="null">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <modifySql  dbms="mysql">
+            <append  value=" ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb3"/>
+        </modifySql>
+
+    </changeSet>
+
+    <changeSet author="llagator" id="add_foreign_key_city_country_id">
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_city_country_id"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint  baseColumnNames="country_id"
+                                  baseTableName="city"
+                                  baseTableSchemaName="uma_db"
+                                  constraintName="fk_city_country_id"
+                                  onDelete="SET NULL"
+                                  onUpdate="RESTRICT"
+                                  referencedColumnNames="id"
+                                  referencedTableName="country"
+                                  referencedTableSchemaName="uma_db"
+                                  validate="true"/>
+
+    </changeSet>
+</databaseChangeLog>
+
+<!--mysql-->
+<!--        CREATE TABLE IF NOT EXISTS `uma_db`.`city` (-->
+<!--        `id` INT NOT NULL AUTO_INCREMENT,-->
+<!--        `name` VARCHAR(45) NOT NULL,-->
+<!--        `country_id` INT NULL DEFAULT NULL,-->
+<!--        PRIMARY KEY (`id`),-->
+<!--        INDEX `country_id_idx` (`country_id` ASC) VISIBLE,-->
+<!--        CONSTRAINT `fk_Cities_country_id`-->
+<!--        FOREIGN KEY (`country_id`)-->
+<!--        REFERENCES `uma_db`.`country` (`id`)-->
+<!--        ON DELETE SET NULL)-->
+<!--        ENGINE = InnoDB-->
+<!--        AUTO_INCREMENT = 7-->
+<!--        DEFAULT CHARACTER SET = utf8mb3;-->
+
+<!--<column name="country_id" type="int" defaultValue="null">-->
+<!--<constraints nullable="true" foreignKeyName="fk_city_country_id"-->
+<!--             referencedTableSchemaName="uma_db" referencedTableName="country" referencedColumnNames="id"-->
+<!--             references="ON DELETE SET NULL"/>-->
+<!--</column>-->

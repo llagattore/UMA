@@ -1,0 +1,60 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet author="llagator" id="insert_into_country">
+        <insert schemaName="uma_db" tableName="country">
+            <column name="name" value="United States of America"/>
+            <column name="code" value="USA"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="country">
+            <column name="name" value="United Kingdom"/>
+            <column name="code" value="GBR"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="country">
+            <column name="name" value="Italy"/>
+            <column name="code" value="ITA"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="country">
+            <column name="name" value="Austria"/>
+            <column name="code" value="AUT"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="country">
+            <column name="name" value="Barbados"/>
+            <column name="code" value="BRB"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="country">
+            <column name="name" value="Bermuda"/>
+            <column name="code" value="BMU"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="country">
+            <column name="name" value="Cambodia"/>
+            <column name="code" value="KHM"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="country">
+            <column name="name" value="Cameron"/>
+            <column name="code" value="CMR"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="country">
+            <column name="name" value="Canada"/>
+            <column name="code" value="CAN"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
+
+<!--mysql-->
+<!--        insert into country(name, code)-->
+<!--        values ('United States of America', 'USA'),-->
+<!--        ('United Kingdom', 'GBR'),-->
+<!--        ('Italy', 'ITA'),-->
+<!--        ('Austria', 'AUT'),-->
+<!--        ('Barbados', 'BRB'),-->
+<!--        ('Bermuda', 'BMU'),-->
+<!--        ('Cambodia', 'KHM'),-->
+<!--        ('Cameron', 'CMR'),-->
+<!--        ('Canada', 'CAN');-->

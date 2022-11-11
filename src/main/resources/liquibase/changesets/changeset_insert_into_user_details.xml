@@ -1,0 +1,51 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+    <changeSet author="llagator" id="insert_into_user_details">
+        <insert schemaName="uma_db" tableName="user_details">
+            <column name="user_id" valueComputed="(select id from user where user.username = 'JoDe')"/>
+            <column name="first_name" value="John"/>
+            <column name="last_name" value="Doe"/>
+            <column name="date_of_birth" value="1995-11-07"/>
+            <column name="sex" value="m"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="user_details">
+            <column name="user_id" valueComputed="(select id from user where user.username = 'DaJe')"/>
+            <column name="first_name" value="Dane"/>
+            <column name="last_name" value="Joe"/>
+            <column name="date_of_birth" value="1999-07-24"/>
+            <column name="sex" value="f"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="user_details">
+            <column name="user_id" valueComputed="(select id from user where user.username = 'JaBe')"/>
+            <column name="first_name" value="Jane"/>
+            <column name="last_name" value="Boe"/>
+            <column name="date_of_birth" value="1986-03-05"/>
+            <column name="sex" value="f"/>
+        </insert>
+        <insert schemaName="uma_db" tableName="user_details">
+            <column name="user_id" valueComputed="(select id from user where username = 'BoJe')"/>
+            <column name="first_name" value="Bon"/>
+            <column name="last_name" value="Joe"/>
+            <column name="date_of_birth" value="1993-12-13"/>
+            <column name="sex" value="m"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
+
+<!--        select @usr1 := id from user where username = 'JoDe';-->
+<!--        select @usr2 := id from user where username = 'DaJe';-->
+<!--        select @usr3 := id from user where username = 'JaBe';-->
+<!--        select @usr4 := id from user where username = 'BoJe';-->
+
+<!--        INSERT INTO user_details(user_id, first_name, last_name, date_of_birth, sex)-->
+<!--        values (@usr1, 'John', 'Doe', '1995-11-07', 'm'),-->
+<!--        (@usr2, 'Dane', 'Joe', '1999-07-24', 'f'),-->
+<!--        (@usr3, 'Jane', 'Boe', '1986-03-05', 'f'),-->
+<!--        (@usr4, 'Bon', 'Joe', '1993-12-13', 'm');-->
