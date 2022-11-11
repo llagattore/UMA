@@ -33,13 +33,3 @@
 
     </changeSet>
 </databaseChangeLog>
-
-<!--mysql-->
-<!--        CREATE TABLE IF NOT EXISTS `uma_db`.`company` (-->
-<!--        `id` INT NOT NULL AUTO_INCREMENT,-->
-<!--        `name` VARCHAR(45) NOT NULL,-->
-<!--        `description` VARCHAR(255) NULL DEFAULT NULL,-->
-<!--        PRIMARY KEY (`id`))-->
-<!--        ENGINE = InnoDB-->
-<!--        AUTO_INCREMENT = 5-->
-<!--        DEFAULT CHARACTER SET = utf8mb3;-->

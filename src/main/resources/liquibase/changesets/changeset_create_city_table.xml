@@ -53,24 +53,3 @@
 
     </changeSet>
 </databaseChangeLog>
-
-<!--mysql-->
-<!--        CREATE TABLE IF NOT EXISTS `uma_db`.`city` (-->
-<!--        `id` INT NOT NULL AUTO_INCREMENT,-->
-<!--        `name` VARCHAR(45) NOT NULL,-->
-<!--        `country_id` INT NULL DEFAULT NULL,-->
-<!--        PRIMARY KEY (`id`),-->
-<!--        INDEX `country_id_idx` (`country_id` ASC) VISIBLE,-->
-<!--        CONSTRAINT `fk_Cities_country_id`-->
-<!--        FOREIGN KEY (`country_id`)-->
-<!--        REFERENCES `uma_db`.`country` (`id`)-->
-<!--        ON DELETE SET NULL)-->
-<!--        ENGINE = InnoDB-->
-<!--        AUTO_INCREMENT = 7-->
-<!--        DEFAULT CHARACTER SET = utf8mb3;-->
-
-<!--<column name="country_id" type="int" defaultValue="null">-->
-<!--<constraints nullable="true" foreignKeyName="fk_city_country_id"-->
-<!--             referencedTableSchemaName="uma_db" referencedTableName="country" referencedColumnNames="id"-->
-<!--             references="ON DELETE SET NULL"/>-->
-<!--</column>-->
